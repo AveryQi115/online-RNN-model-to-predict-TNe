@@ -11,14 +11,14 @@ DATA_PATH = "test.txt"
 
 # load the input image and construct the payload for the request
 data = open(DATA_PATH, "r").read()
-print(data)
+
 payload = {"data": data}
 
 # submit the request
 r = requests.post(KERAS_REST_API_URL, files=payload).json()
 
 # ensure the request was sucessful
-print(r)
+
 if r["success"]:
 	print(r['TNe'])
 
