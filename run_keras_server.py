@@ -10,13 +10,13 @@ import keras
 app = flask.Flask(__name__)
 model = None
 
-config = tf.ConfigProto(
+config = tf.compat.v1.ConfigProto(
 		intra_op_parallelism_threads=1,
 		allow_soft_placement=True
 	)
-session = tf.Session(config=config)
+session = tf.compat.v1.Session(config=config)
 
-keras.backend.set_session(session)
+tf.compat.v1.keras.backend.set_session(session)
 
 
 def web_load_model():
