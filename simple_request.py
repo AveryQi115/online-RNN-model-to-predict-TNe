@@ -15,14 +15,14 @@ data = open(DATA_PATH, "r").read()
 payload = {"data": data}
 
 # submit the request
-r = requests.post(KERAS_REST_API_URL, files=payload)
+r = requests.post(KERAS_REST_API_URL, files=payload).json()
 print(r)
 
 # ensure the request was sucessful
 #
-#if r["success"]:
-#	print(r['TNe'])
+if r["success"]:
+	print(r['TNe'])
 
 # otherwise, the request failed
-#else:
-#	print("Request failed")
+else:
+	print("Request failed")

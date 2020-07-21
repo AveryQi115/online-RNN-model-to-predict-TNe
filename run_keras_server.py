@@ -1,10 +1,12 @@
 # import the necessary packages
+import keras
 from keras.models import load_model
 import numpy as np
 import flask
 import pandas as pd
 import tensorflow as tf
-import keras
+from flask import Flask, render_template
+
 
 # initialize our Flask application and the Keras model
 app = flask.Flask(__name__)
@@ -44,6 +46,12 @@ def prepare_data(data, target):
 	return data
 
 
+@app.route('/')
+def hello():
+	return render_template("hello.html")
+
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
 	# initialize the result dictionary that will be returned from the
@@ -77,10 +85,12 @@ def predict():
 	return flask.jsonify(result)
 
 
+
 # if this is the main thread of execution first load the model and
 # then start the server
 if __name__ == "__main__":
 	print(("* Loading Keras model and Flask starting server..."
 		"please wait until server has fully started"))
 	web_load_model()
-	app.run(host='0.0.0.0',port=5000)
+	# app.run(host='0.0.0.0',port=5000)
+	app.run()
