@@ -12,13 +12,13 @@ from flask import Flask, render_template, redirect, url_for
 app = flask.Flask(__name__)
 model = None
 
-config = tf.compat.v1.ConfigProto(
+config = tf.ConfigProto(
 		intra_op_parallelism_threads=1,
 		allow_soft_placement=True
 	)
-session = tf.compat.v1.Session(config=config)
+session = tf.Session(config=config)
 
-tf.compat.v1.keras.backend.set_session(session)
+keras.backend.set_session(session)
 
 
 def web_load_model():
