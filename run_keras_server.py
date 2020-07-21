@@ -31,8 +31,8 @@ def web_load_model():
 	# web is not in the same thread
 	testdata = np.zeros(shape=(1,5,8))
 	pred = model.predict(testdata)
-    model.compile()
-    model.run_eagerly=True
+	model.compile()
+	model.run_eagerly=True
 	#print(model.input_shape)
 
 
