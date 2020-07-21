@@ -5,7 +5,7 @@ import numpy as np
 import flask
 import pandas as pd
 import tensorflow as tf
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 
 
 # initialize our Flask application and the Keras model
@@ -51,8 +51,7 @@ def hello():
 	return render_template("hello.html")
 
 
-
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["GET","POST"])
 def predict():
 	# initialize the result dictionary that will be returned from the
 	# view
@@ -79,11 +78,18 @@ def predict():
 						result["success"] = True
 			except Exception as ex:
 				print('Seatbelt Prediction Error', ex)
+		# return the data dictionary as a JSON response
+		return render_template('result.html', result=result)
+	elif flask.request.method == "GET":
+		return render_template('predict.html')
 
-	print(result)
-	# return the data dictionary as a JSON response
-	return flask.jsonify(result)
+@app.route("/about_us")
+def about_us():
+	return render_template("about_us.html")
 
+@app.route("/about_program")
+def about_program():
+	return render_template("about_program.html")
 
 
 # if this is the main thread of execution first load the model and

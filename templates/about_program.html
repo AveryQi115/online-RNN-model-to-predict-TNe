@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fontawesome/css/all.css')}}">
+    {% endblock%}
+</head>
+<body background={{url_for('static',filename='main-opa.jpg')}}>
+{% include "header.html" %}
+<div class="container">
+    <div class="d-flex justify-content-center text-white"><h1>智水</h1></div>
+    <div class="d-flex justify-content-center text-white"><p>
+        “智水——基于人工智能的污水处理数字孪生系统”项目主要产品为污水处理厂的数字孪生体：
+        核心部分由三维模型单元、污水处理机理单元、数据驱动单元、CFD单元和模型预测控制单元五部分构成，
+        可在虚拟空间中完成污水厂实体映射，反映污水处理厂管理的全过程，
+        为工业4.0时代的污水处理厂优化运行提供技术思路，达到节能降耗等目的。</p>
+    </div>
+</div>
+{% include "footer.html" %}
+{% block js %}<!--js模块区域-->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ url_for('static', filename='jquery/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='popper/popper.js') }}"></script>
+{% endblock %}
+</body>
+</html>

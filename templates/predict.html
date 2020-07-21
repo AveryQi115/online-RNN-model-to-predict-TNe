@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>预测模型</title>
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fontawesome/css/all.css')}}">
+    {% endblock%}
+</head>
+<body background={{url_for('static',filename='main-opa.jpg')}}>
+{% include "header.html" %}
+<div class="container">
+    <div class="container">
+        <div class="d-flex justify-content-center text-white"><h4>请仔细查看以下文件规范后再提交待遇测数据：</h4></div>
+        <br>
+        <div class="d-flex justify-content-center container">
+            <div class="col-4 text-white"><p>传入文件应符合以下规则：空格键制表键分隔数据,支持windows,linux两种系统格式的换行符一行代表一天的数据，应有以下八列（请严格按照顺序）:'volume', 'CODi','NH3-Ni', 'TNi', 'TPi', 'CODe', 'NH3Ne', 'TPe'。如从Excel电子表格中复制，请不要复制表头</p></div>
+        </div>
+        <br>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form action="{{url_for('predict')}}" method="POST" enctype="multipart/form-data">
+            <ul>
+                <input type="file" name="data">
+                <br>
+                <br>
+                <input type="submit" value="提交">
+            </ul>
+        </form>
+    </div>
+</div>
+{% include "footer.html" %}
+{% block js %}<!--js模块区域-->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ url_for('static', filename='jquery/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='popper/popper.js') }}"></script>
+{% endblock %}
+</body>
+</html>

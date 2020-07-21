@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>预测结果</title>
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fontawesome/css/all.css')}}">
+    {% endblock%}
+</head>
+<body background={{url_for('static',filename='main-opa.jpg')}}>
+{% include "header.html" %}
+<div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="d-flex justify-content-center text-white"><p>预测结果如下：</p></div>
+        <div class="d-flex justify-content-center text-white"><p>{{result['TNe']}}</p></div>
+    </div>
+</div>
+{% include "footer.html" %}
+{% block js %}<!--js模块区域-->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ url_for('static', filename='jquery/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='popper/popper.js') }}"></script>
+{% endblock %}
+</body>
+</html>

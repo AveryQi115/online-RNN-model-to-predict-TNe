@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    {% block css %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='fontawesome/css/all.css')}}">
+    {% endblock%}
 </head>
-<body>
-<h1>Hello,World!</h1>
+<body background={{url_for('static',filename='main-opa.jpg')}}>
+{% include "header.html" %}
+<div class="container">
+    <div class="container">
+        <br>
+        <br>
+        <div class="d-flex justify-content-center text-white"><h1>智水</h1></div>
+        <br>
+        <div class="d-flex justify-content-center text-white"><p>一个基于人工智能的污水处理数字孪生系统。</p></div>
+        <div class="d-flex justify-content-center"><p><a class="btn btn-primary text-white" role="button" href="{{url_for('predict')}}">点击预测</a></p></div>
+    </div>
+</div>
+{% include "footer.html" %}
+{% block js %}<!--js模块区域-->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ url_for('static', filename='jquery/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='popper/popper.js') }}"></script>
+{% endblock %}
 </body>
 </html>

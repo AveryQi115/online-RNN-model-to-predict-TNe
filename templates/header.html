@@ -1,0 +1,18 @@
+<!-- 定义导航栏 ，黑色，固定在顶部-->
+<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+  <div class="container-fluid">
+
+    <!-- 同济堂 ，按钮点击可以返回主界面-->
+    <div class="navbar-header">
+      <a class="navbar-brand text-white" href="/">智水</a>
+      <!--板块1名称-->
+      <span class="mt-2 ml-2"><i class="fas fa-graduation-cap" style="color:white; font-size:30px;"></i></span>
+      <a class="navbar-brand" style="font-size:15px" href="{{url_for('about_program')}}">关于智水</a>
+
+      <!--板块2名称-->
+      <span class="mt-2 ml-2"><i class="fas fa-user-alt" style="color:white; font-size:30px;"></i></span>
+      <a class="navbar-brand" style="font-size:15px" href="{{url_for('about_us')}}">关于我们</a>
+
+    </div>
+  </div>
+</nav>
