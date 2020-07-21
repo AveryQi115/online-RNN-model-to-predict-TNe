@@ -31,6 +31,8 @@ def web_load_model():
 	# web is not in the same thread
 	testdata = np.zeros(shape=(1,5,8))
 	pred = model.predict(testdata)
+    model.compile()
+    model.run_eagerly=True
 	#print(model.input_shape)
 
 
@@ -98,5 +100,5 @@ if __name__ == "__main__":
 	print(("* Loading Keras model and Flask starting server..."
 		"please wait until server has fully started"))
 	web_load_model()
-	# app.run(host='0.0.0.0',port=5000)
-	app.run()
+	app.run(host='0.0.0.0',port=5000)
+	# app.run()
