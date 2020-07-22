@@ -10,11 +10,125 @@
 </head>
 <body background={{url_for('static',filename='main-opa.jpg')}}>
 {% include "header.html" %}
-<div class="container"">
+<div class="container">
     <div class="container">
         <div class="d-flex justify-content-center text-white"><h1>智水</h1></div>
-        <div class="d-flex justify-content-center text-white"><p>一个基于人工智能的污水处理数字孪生系统。</p></div>
-        <div class="d-flex justify-content-center"><p><a class="btn btn-primary text-white" role="button" href="{{url_for('predict')}}">点击预测</a></p></div>
+        <br>
+        <div class="d-flex justify-content-left text-white"><h5>关于团队</h5></div>
+        <hr>
+        <div class="d-flex justify-content-left text-white"><p>这里是关于团队的简介。</p></div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="d-flex justify-content-left text-white"><h5>团队导师</h5></div>
+        <hr>
+    <div class="row">
+        <div class="col-4">
+            <div class="card bg-secondary text-white" style="width:200px;height:400px">
+                <img src={{url_for('static',filename='/avatar/consulting-xuzuxin.jpg')}} class="card-img-top" style="width:200px;height:200px">
+                <div class="card-body">
+                    <p class="card-title">顾问导师：徐祖信</p>
+                    <p class="card-text" style="font-size:small">中国工程院院士、同济大学环境科学与工程学院教授、博导。主要研究方向为城市排水管网溢流污染和初雨污染高效控制、城市管网淤泥、河道底泥、市政污泥耦合治理等。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card bg-secondary text-white" style="width:200px;height:400px">
+                <img src={{url_for('static',filename='/avatar/main-yinhailong.jpg')}} class="card-img-top" style="width:200px;height:200px">
+                <div class="card-body">
+                    <p class="card-title">首席导师：尹海龙</p>
+                    <p class="card-text" style="font-size:small">同济大学环境科学与工程学院教授、博导。主要研究方向，城市面源污染控制技术、水环境系统工程。主持国家和省部级科研项目20余项。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!--团队成员-->
+    <div class="container">
+        <div class="d-flex justify-content-left text-white"><h5>团队成员</h5></div>
+        <hr>
+        <div class="row">
+        {% for person in info1 %}
+            <div class="col-4">
+                <div class="card bg-secondary text-white" style="width:200px;height:450px">
+                <img src={{url_for('static',filename=person['img'])}} class="card-img-top" style="width:200px;height:200px">
+                <div class="card-body">
+                    <p class="card-title">{{person['name']}}</p>
+                    <p class="card-text" style="font-size:small">
+                        {{person['desc']}}
+                    </p>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <br>
+        <div class="row">
+        {% for person in info2 %}
+            <div class="col-4">
+                <div class="card bg-secondary text-white" style="width:200px;height:450px">
+                <img src={{url_for('static',filename=person['img'])}} class="card-img-top" style="width:200px;height:200px">
+                <div class="card-body">
+                    <p class="card-title">{{person['name']}}</p>
+                    <p class="card-text" style="font-size:small">
+                        {{person['desc']}}
+                    </p>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <br>
+        <div class="row">
+        {% for person in info3 %}
+            <div class="col-4">
+                <div class="card bg-secondary text-white" style="width:200px;height:450px">
+                <img src={{url_for('static',filename=person['img'])}} class="card-img-top" style="width:200px;height:200px">
+                <div class="card-body">
+                    <p class="card-title">{{person['name']}}</p>
+                    <p class="card-text" style="font-size:small">
+                        {{person['desc']}}
+                    </p>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <br>
+        <div class="row">
+        {% for person in info4 %}
+            <div class="col-4">
+                <div class="card bg-secondary text-white" style="width:200px;height:450px">
+                <img src={{url_for('static',filename=person['img'])}} class="card-img-top" style="width:200px;height:200px">
+                <div class="card-body">
+                    <p class="card-title">{{person['name']}}</p>
+                    <p class="card-text" style="font-size:small">
+                        {{person['desc']}}
+                    </p>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <br>
+        <div class="row">
+        {% for person in info5 %}
+            <div class="col-4">
+                <div class="card bg-secondary text-white" style="width:200px;height:450px">
+                <img src={{url_for('static',filename=person['img'])}} class="card-img-top" style="width:200px;height:200px">
+                <div class="card-body">
+                    <p class="card-title">{{person['name']}}</p>
+                    <p class="card-text" style="font-size:small">
+                        {{person['desc']}}
+                    </p>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
     </div>
 </div>
 {% include "footer.html" %}
